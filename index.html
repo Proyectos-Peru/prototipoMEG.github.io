@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar Sesión - MEG Avícola</title>
+  <title>Iniciar Sesión – MEG Avícola</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,15 +11,32 @@
     <header>
       <h2>Iniciar Sesión</h2>
       <p>Ingresa para continuar</p>
+
+      <!-- Aviso con las credenciales demo -->
+      <p class="demo-info">
+        <strong>Credenciales de prueba:</strong><br>
+        Usuario (celular): <code>987654321</code><br>
+        Contraseña: <em>cualquier texto</em>
+      </p>
     </header>
 
     <main>
-      <form id="formLogin">
+      <!-- Sin action/method: lo gestiona el script -->
+      <form id="formLogin" novalidate>
         <label for="telefono">Celular</label>
-        <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}" placeholder="Colocar siguiente número: 987654321" />
+        <input type="tel"
+               id="telefono"
+               name="telefono"
+               required
+               pattern="[0-9]{9}"
+               placeholder="Escribe 987654321" />
 
         <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" required placeholder="Colocar cualquier texto" />
+        <input type="password"
+               id="password"
+               name="password"
+               required
+               placeholder="Escribe cualquier texto" />
 
         <button type="submit" class="btn btn-enviar">Ingresar</button>
       </form>
@@ -31,25 +48,26 @@
   </div>
 
   <script>
-    document.getElementById("formLogin").addEventListener("submit", function(e) {
+    /* Interceptamos el envío para evitar el POST */
+    document.getElementById('formLogin').addEventListener('submit', e => {
       e.preventDefault();
 
-      const telefono = document.getElementById("telefono").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-      const telefonoValido = /^[0-9]{9}$/.test(telefono);
-
-      if (!telefonoValido) {
-        alert("El número de celular debe tener 9 dígitos.");
+      /* Validación específica para el prototipo */
+      if (telefono !== '987654321') {
+        alert('Para este prototipo debes ingresar el número 987654321.');
         return;
       }
 
-      if (password === "") {
-        alert("La contraseña no puede estar vacía.");
+      if (password === '') {
+        alert('La contraseña no puede estar vacía.');
         return;
       }
 
-      window.location.href = "dashboard.html";
+      /* Acceso concedido: redirigimos al panel de prueba */
+      window.location.href = 'dashboard.html';
     });
   </script>
 </body>
