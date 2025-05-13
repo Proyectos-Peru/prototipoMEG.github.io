@@ -3,40 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro - MEG Avícola</title>
+  <title>Registro – MEG Avícola</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    /* Cuando la página cargue, interceptamos el envío del formulario */
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('form-registro');
-
-      form.addEventListener('submit', e => {
-        /* Si la validación HTML5 falla, el navegador impedirá el submit
-           y no llegamos aquí, así que no necesitamos comprobar nada más */
-        e.preventDefault();          // Evitamos el POST real
-        /* Aquí podrías guardar los datos en localStorage o enviarlos
-           a un servicio externo mediante fetch/AJAX */
-        window.location.href = 'dashboard.html'; // Redirigimos
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container registro">
     <header>
       <h2>Crear Cuenta</h2>
-      <p>Regístrate para comenzar a usar MEG Avícola</p>
+      <p>Regístrate para comenzar a usar MEG Avícola</p>
     </header>
 
     <main>
-      <!--  NO indicamos method/action porque lo manejaremos con JS -->
-      <form id="form-registro" novalidate>
+      <!-- onsubmit="return false" es un seguro mecánico -->
+      <form id="form-registro" novalidate onsubmit="return false">
         <label for="nombre">Nombres y Apellidos</label>
         <input type="text" id="nombre" name="nombre" required />
 
         <label for="telefono">Celular</label>
         <input type="tel" id="telefono" name="telefono" required
-               pattern="[0-9]{9}" placeholder="Ej: 987654321" />
+               pattern="[0-9]{9}" placeholder="Ej: 987654321" />
 
         <label for="zona">Zona geográfica</label>
         <select id="zona" name="zona" required>
@@ -60,5 +45,26 @@
       </p>
     </main>
   </div>
+
+  <!-- Script al final: el DOM ya existe -->
+  <script>
+    (function () {
+      const form = document.getElementById('form-registro');
+      if (!form) {
+        console.error('No se encontró #form-registro');
+        return;
+      }
+
+      /* “seguro 2” – interceptamos el submit */
+      form.addEventListener('submit', e => {
+        console.log('Listener ejecutado, se evita POST');
+        e.preventDefault();                // Evita la petición 405
+
+        /* Validación nativa ya se encargó de campos vacíos/patrón.
+           Aquí podrías guardar en localStorage o hacer fetch() */
+        window.location.href = 'dashboard.html'; // Redirige al prototipo
+      });
+    })();
+  </script>
 </body>
 </html>
