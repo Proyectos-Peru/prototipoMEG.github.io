@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoreo - MEG Avícola</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container monitoreo">
+    <header>
+      <h2>Monitoreo en Tiempo Real</h2>
+      <p>Visualiza los datos actualizados de tus sensores</p>
+    </header>
+
+    <main>
+      <div class="sensor">
+        <h4>🌡️ Temperatura</h4>
+        <p>27°C</p>
+        <span class="estado normal">Normal</span>
+        <button class="btn-grafico" data-sensor="temperatura">Ver Gráfica</button>
+      </div>
+
+      <div class="sensor">
+        <h4>💧 Humedad</h4>
+        <p>65%</p>
+        <span class="estado alerta">Alerta: Baja</span>
+        <button class="btn-grafico" data-sensor="humedad">Ver Gráfica</button>
+      </div>
+
+      <div class="sensor">
+        <h4>🍽️ Alimentación</h4>
+        <p>Automática activada</p>
+        <span class="estado normal">En funcionamiento</span>
+        <button class="btn-grafico" data-sensor="alimentacion">Ver Gráfica</button>
+      </div>
+
+      <div class="sensor">
+        <h4>🐥 Crecimiento</h4>
+        <p>1.4 kg promedio</p>
+        <span class="estado normal">Esperado</span>
+        <button class="btn-grafico" data-sensor="crecimiento">Ver Gráfica</button>
+      </div>
+    </main>
+
+    <footer>
+      <a href="dashboard.html" class="btn-volver">← Volver al Dashboard</a>
+    </footer>
+  </div>
+
+  <!-- Modal de Gráfica -->
+  <div id="modalGrafico" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <h3 id="tituloGrafico">Gráfico de Sensor</h3>
+
+      <label for="rango">Periodo:</label>
+      <select id="rango">
+        <option value="semana">Semanal</option>
+        <option value="mes">Mensual</option>
+        <option value="anio">Anual</option>
+      </select>
+
+      <canvas id="graficoSensor" width="100%" height="60"></canvas>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

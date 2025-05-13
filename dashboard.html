@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - MEG Avícola</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container dashboard">
+    <header>
+      <h1>Panel General</h1>
+      <p>Resumen del estado actual del galpón</p>
+    </header>
+
+    <main>
+      <!-- Estado general -->
+      <section class="estado-general">
+        <h3>Estado General</h3>
+        <div class="estado ok">✅ Todo en condiciones óptimas</div>
+      </section>
+
+      <!-- Resumen rápido -->
+      <section class="resumen-datos">
+        <div class="tarjeta">
+          <h4>🌡️ Temperatura</h4>
+          <p>27°C</p>
+        </div>
+        <div class="tarjeta">
+          <h4>💧 Humedad</h4>
+          <p>65%</p>
+        </div>
+        <div class="tarjeta">
+          <h4>🍽️ Alimentación</h4>
+          <p>Programada</p>
+        </div>
+        <div class="tarjeta">
+          <h4>🐥 Crecimiento</h4>
+          <p>1.4 kg promedio</p>
+        </div>
+      </section>
+
+      <!-- Gráfica de temperatura -->
+      <section class="grafica">
+        <h3>Temperatura - Últimos 7 días</h3>
+        <canvas id="graficoTemperatura" width="100%" height="60"></canvas>
+      </section>
+
+      <!-- Navegación -->
+      <nav class="menu-dashboard">
+        <a href="monitoreo.html" class="btn-nav">Monitoreo</a>
+        <a href="reportes.html" class="btn-nav">Reportes</a>
+        <a href="perfil.html" class="btn-nav">Perfil</a>
+      </nav>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

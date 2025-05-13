@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil - MEG Avícola</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container perfil">
+    <header>
+      <h2><i class="fas fa-user-circle"></i> Mi Perfil</h2>
+      <p>Consulta tu información personal registrada</p>
+    </header>
+
+    <main>
+      <!-- Imagen de perfil -->
+      <div class="imagen-perfil">
+        <img id="fotoPerfil" src="perfil.png" alt="Foto de perfil">
+        <label for="inputFoto" class="btn cambiar-foto">Cambiar Foto de Perfil</label>
+        <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+      </div>
+
+      <!-- Vista actual -->
+      <div class="info-usuario tarjeta" id="vistaPerfil">
+        <p><strong>Nombre:</strong> <span id="nombreTexto">Juan Pérez</span></p>
+        <p><strong>Celular:</strong> <span id="celularTexto">987654321</span></p>
+        <p><strong>Zona geográfica:</strong> <span id="zonaTexto">Piura</span></p>
+      </div>
+
+      <!-- Formulario de edición -->
+      <form id="formEditarPerfil" class="tarjeta" style="display: none;">
+        <label for="nombreInput">Nombre</label>
+        <input type="text" id="nombreInput" value="Juan Pérez">
+
+        <label for="celularInput">Celular</label>
+        <input type="text" id="celularInput" value="987654321">
+
+        <label for="zonaInput">Zona geográfica</label>
+        <input type="text" id="zonaInput" value="Piura">
+
+        <button type="submit" class="btn">Guardar Cambios</button>
+      </form>
+
+      <!-- Acciones -->
+      <div class="acciones-perfil">
+        <button id="btnEditarPerfil" class="btn">Editar Información</button>
+        <a href="index.html" class="btn btn-cerrar-sesion"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+      </div>
+    </main>
+
+    <footer>
+      <a href="dashboard.html" class="btn btn-volver">← Volver al Dashboard</a>
+    </footer>
+  </div>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputFoto = document.getElementById("inputFoto");
+      const fotoPerfil = document.getElementById("fotoPerfil");
+
+      if (inputFoto && fotoPerfil) {
+        inputFoto.addEventListener("change", (e) => {
+          const archivo = e.target.files[0];
+          if (archivo && archivo.type.startsWith("image/")) {
+            const lector = new FileReader();
+            lector.onload = function (evento) {
+              fotoPerfil.src = evento.target.result;
+            };
+            lector.readAsDataURL(archivo);
+          } else {
+            alert("Por favor selecciona una imagen válida.");
+          }
+        });
+      }
+
+      const btnEditarPerfil = document.getElementById("btnEditarPerfil");
+      const vistaPerfil = document.getElementById("vistaPerfil");
+      const formEditar = document.getElementById("formEditarPerfil");
+
+      const nombreTexto = document.getElementById("nombreTexto");
+      const celularTexto = document.getElementById("celularTexto");
+      const zonaTexto = document.getElementById("zonaTexto");
+
+      const nombreInput = document.getElementById("nombreInput");
+      const celularInput = document.getElementById("celularInput");
+      const zonaInput = document.getElementById("zonaInput");
+
+      if (btnEditarPerfil && vistaPerfil && formEditar) {
+        btnEditarPerfil.addEventListener("click", () => {
+          vistaPerfil.style.display = "none";
+          formEditar.style.display = "block";
+        });
+
+        formEditar.addEventListener("submit", (e) => {
+          e.preventDefault();
+          nombreTexto.textContent = nombreInput.value.trim();
+          celularTexto.textContent = celularInput.value.trim();
+          zonaTexto.textContent = zonaInput.value.trim();
+
+          formEditar.style.display = "none";
+          vistaPerfil.style.display = "block";
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reportes - MEG Avícola</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container reportes">
+    <header>
+      <h2>Historial de Reportes</h2>
+      <p>Consulta los datos históricos recolectados por los sensores</p>
+    </header>
+
+    <main>
+      <!-- Filtro por tipo de dato -->
+      <div class="filtros">
+        <label for="tipo-reporte">Tipo de dato:</label>
+        <select id="tipo-reporte">
+          <option value="todos">Todos</option>
+          <option value="temperatura">Temperatura</option>
+          <option value="humedad">Humedad</option>
+          <option value="alimentacion">Alimentación</option>
+          <option value="crecimiento">Crecimiento</option>
+        </select>
+      </div>
+
+      <!-- Tabla dinámica -->
+      <section class="tabla-reportes">
+        <table id="tabla-datos">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Valor</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-cuerpo">
+            <!-- Contenido generado por JavaScript -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Paginación -->
+      <div id="paginacion" class="paginacion">
+        <!-- Botones generados dinámicamente -->
+      </div>
+    </main>
+
+    <footer>
+      <a href="dashboard.html" class="btn-volver">← Volver al Dashboard</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>

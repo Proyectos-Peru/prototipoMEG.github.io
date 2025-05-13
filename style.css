@@ -1,0 +1,315 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f9f6;
+  color: #333;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Encabezados */
+header h1, header h2 {
+  color: #256029;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header p {
+  text-align: center;
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Botones generales */
+.btn, .btn-nav, .btn-enviar, .btn-volver, .btn-cerrar-sesion {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #34a853;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover,
+.btn-enviar:hover,
+.btn-volver:hover,
+.btn-nav:hover,
+.btn-cerrar-sesion:hover {
+  background-color: #2e8b4e;
+}
+
+/* Formularios */
+form label,
+.filtros label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+form input,
+form select,
+.filtros select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Tarjetas y sensores */
+.tarjeta, .sensor {
+  background-color: #f0f7f3;
+  border-left: 5px solid #34a853;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.sensor .estado,
+.tarjeta .estado {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.estado.normal {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado.alerta {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Botón para abrir gráficas */
+.btn-grafico {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #256029;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s;
+}
+
+.btn-grafico:hover {
+  background-color: #1c4d23;
+}
+
+/* Tabla de reportes */
+.tabla-reportes {
+  margin-top: 20px;
+}
+
+.tabla-reportes table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 0.95em;
+}
+
+.tabla-reportes th,
+.tabla-reportes td {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.tabla-reportes th {
+  background-color: #e8f5e9;
+  color: #256029;
+  font-weight: bold;
+}
+
+/* Paginación */
+.paginacion {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paginacion button {
+  background-color: #256029;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 3px;
+  padding: 8px 12px;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.paginacion button.active {
+  background-color: #34a853;
+  font-weight: bold;
+}
+
+.paginacion button:hover {
+  background-color: #1c4d23;
+}
+
+/* FAQ */
+.faq ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.faq li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-left: 3px solid #34a853;
+}
+
+.contacto a {
+  color: #256029;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #888;
+}
+
+/* Gráfica en dashboard */
+.grafica {
+  margin-top: 20px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.cerrar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.perfil header h2 {
+  font-size: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.info-usuario {
+  background-color: #f0f7f3;
+  padding: 15px;
+  border-left: 4px solid #34a853;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.info-usuario p {
+  margin-bottom: 10px;
+}
+
+.acciones-perfil {
+  margin-top: 20px;
+}
+
+.btn-cerrar-sesion i,
+.btn-volver i {
+  margin-right: 8px;
+}
+
+.imagen-perfil {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.imagen-perfil img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #34a853;
+  margin-bottom: 10px;
+}
+
+.cambiar-foto {
+  background-color: #256029;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.cambiar-foto:hover {
+  background-color: #1c4d23;
+}
+
