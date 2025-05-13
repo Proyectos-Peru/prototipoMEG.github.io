@@ -14,7 +14,7 @@
     </header>
 
     <main>
-      <form action="dashboard" method="post">
+      <form id="formLogin">
         <label for="telefono">Celular</label>
         <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}" placeholder="Colocar siguiente número: 987654321" />
 
@@ -29,5 +29,29 @@
       </p>
     </main>
   </div>
+
+  <script>
+    document.getElementById("formLogin").addEventListener("submit", function(e) {
+      e.preventDefault(); // Evita recargar la página
+
+      const telefono = document.getElementById("telefono").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const telefonoValido = /^[0-9]{9}$/.test(telefono);
+
+      if (!telefonoValido) {
+        alert("El número de celular debe tener 9 dígitos.");
+        return;
+      }
+
+      if (password === "") {
+        alert("La contraseña no puede estar vacía.");
+        return;
+      }
+
+      // Redirige al dashboard si todo es válido
+      window.location.href = "dashboard.html";
+    });
+  </script>
 </body>
 </html>
